@@ -17,7 +17,7 @@ const Line = ({ product, index, setProducts, products }) => {
 
     const deleteProduct = (productId) => {
         console.log(productId)
-        axios.delete(API_URL + '/api/products/' + productId)
+        axios.delete(API_URL + '/api/products/product/' + productId)
             .then((res) => {
                 console.log(res)
                 setProducts(products.filter(pr => pr._id !== productId))

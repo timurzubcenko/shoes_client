@@ -17,8 +17,12 @@ const Product = ({ card, changeAddCard }) => {
     //     setAddActive(!addActive)
     // }
 
+    const scrollUp = () => {
+        window.scrollTo(0, 0);
+    }
+
     return (
-        <Link to={"/shoes/" + card._id}>
+        <Link onClick={scrollUp} to={"/shoes/" + card._id}>
             <div className={s.card}>
                 <div className={s.img}>
                     <img src={card.img} alt="" />

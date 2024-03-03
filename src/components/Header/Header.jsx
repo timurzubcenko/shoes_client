@@ -31,13 +31,13 @@ const Header = ({ isLogin }) => {
                 </div>
                 <nav className={`${s.header_menu} ${isActive ? s.active : ''}`}>
                     <ul className={s.header_list}>
-                        <li><Link to="/">HOME</Link></li>
-                        <li>MEN</li>
-                        <li>WOMEN</li>
-                        <li>KIDS</li>
+                        <li onClick={clickMenu}><Link to="/">HOME</Link></li>
+                        <li onClick={clickMenu}>MEN</li>
+                        <li onClick={clickMenu}>WOMEN</li>
+                        <li onClick={clickMenu}>KIDS</li>
                     </ul>
                     <div className={s.lang_btns_in_menu}>
-                        <Link to="/cart"><Btn><Cart4 /></Btn></Link>
+                        <Link onClick={clickMenu} to="/cart"><Btn ><Cart4 /></Btn></Link>
                         {
                             isLogin
                                 ? <div className={s.user}>

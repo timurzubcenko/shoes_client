@@ -58,8 +58,20 @@ const CartPage = () => {
         }))
     }
 
-    const removeItem = (productId) => {
-        setCartProducts(cartProducts.filter((p) => p.id !== productId))
+    const removeItem = async (productId) => {
+        // setCartProducts(cartProducts.filter((p) => p.id !== productId))
+        try {
+
+            await axios.delete(API_URL + '/api/products/cart/remove/' + productId, {
+                headers: authHeader()
+            })
+                .then((res) => {
+                    console.log(res)
+                })
+
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     const getShoppingBag = async () => {

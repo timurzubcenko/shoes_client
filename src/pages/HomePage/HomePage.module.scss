@@ -28,12 +28,15 @@
                 font-size: 15vw;
                 color: #FFF;
                 z-index: -1;
+                text-shadow: 10px 30px 85px rgba(0, 0, 0, 0.15);
             }
 
             img {
                 max-width: 850px;
                 width: 100%;
                 object-fit: contain;
+                -webkit-filter: drop-shadow(23px 45px 75px #000);
+                filter: drop-shadow(23px 45px 75px #000);
             }
         }
 
@@ -55,6 +58,7 @@
                 font-weight: 700;
                 line-height: normal;
                 text-transform: uppercase;
+                text-shadow: 3px 3px 4px rgba(0, 0, 0, 0.15);
             }
 
             svg {

@@ -2,14 +2,15 @@ import React, { useState, useEffect, useContext } from 'react'
 import s from './ProductPage.module.scss'
 import ImagesSlider from '../../components/ImagesSlider/ImagesSlider';
 import products from '../../data/products';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import axios from 'axios'
 import { AuthContext } from '../../context/AuthContext';
 import authHeader from '../../services/header.service'
+import { Check2 } from 'react-bootstrap-icons'
 
 const API_URL = import.meta.env.VITE_API_URL
 
-const ProductPage = () => {
+const ProductPage = ({ isLogin }) => {
 
     const { userId2 } = useContext(AuthContext)
     console.log(API_URL)
@@ -37,6 +38,7 @@ const ProductPage = () => {
             img: ''
         },
     ])
+    const [isInCart, setIsInCart] = useState(false)
 
     const { id } = useParams()
 
@@ -88,6 +90,7 @@ const ProductPage = () => {
             })
                 .then((res) => {
                     console.log(res.data)
+                    setIsInCart(true)
                 })
 
         } catch (error) {
@@ -123,7 +126,22 @@ const ProductPage = () => {
                         <a href="">Learn More</a>
                     </div>
                     <div className={s.btns}>
-                        <button onClick={addToBag} className={s.btn}>Add to Bag</button>
+                        {
+                            isLogin
+                                ?
+                                !isInCart ? <button onClick={addToBag} className={s.btn}>
+                                    {'Add to Bag'}
+                                </button>
+                                    : <button onClick={addToBag} className={s.btn_done}>
+                                        <Check2 />
+                                    </button>
+                                :
+                                <Link to='/login'>
+                                    <button className={s.btn}>
+                                        Log in
+                                    </button>
+                                </Link>
+                        }
                         <button className={s.btn2}>Favorite</button>
                     </div>
                     <div className={s.description}>

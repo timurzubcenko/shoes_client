@@ -11,6 +11,7 @@ const HomePage = () => {
     let arrow = useRef(null)
     let jordan = useRef(null)
     let main = useRef(null)
+    let sneakers = useRef(null)
 
     gsap.registerPlugin(ScrollTrigger);
 
@@ -25,7 +26,7 @@ const HomePage = () => {
                 duration: 1,
             })
 
-        gsap.fromTo(jordan, { x: 0, y: 0, opacity: 1 }, {
+        gsap.to(jordan, {
             scrollTrigger: {
                 trigger: main,
                 start: 'top top',
@@ -35,15 +36,40 @@ const HomePage = () => {
             },
             // opacity: .4,
             // scale: .9,
-            y: -80,
+            y: -100,
         })
+
+        gsap.to(sneakers, {
+            scrollTrigger: {
+                trigger: main,
+                start: 'top top',
+                end: 'bottom top',
+                scrub: true,
+                // markers: true,
+            },
+            y: 200,
+        })
+
+        const tl2 = gsap.timeline({ repeat: -1, ease: 'none' })
+            .to(jordan, {
+                scale: 1.1,
+                rotate: -10,
+                duration: 10,
+                transformOrigin: '50% 50%',
+            })
+            .to(jordan, {
+                scale: 1,
+                rotate: 0,
+                duration: 10,
+                transformOrigin: '50% 50%',
+            })
     }, [])
 
     return (
         <div className={s.main}>
             <div className={s.main_header} ref={el => main = el}>
                 <div className={`${s.center} container`}>
-                    <h1>SNEAKERS</h1>
+                    <h1 ref={el => sneakers = el}>SNEAKERS</h1>
                     <img src={Jordan} alt="Jordan" ref={el => jordan = el} />
                 </div>
                 <div className={s.arrow_scroll}>

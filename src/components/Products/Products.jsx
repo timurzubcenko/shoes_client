@@ -4,6 +4,7 @@ import { Search } from 'react-bootstrap-icons'
 import productsData from '../../data/products';
 import Product from '../Product/Product';
 import axios from 'axios'
+import Input from '../Input/Input'
 
 const API_URL = import.meta.env.VITE_API_URL
 
@@ -38,7 +39,7 @@ const Products = () => {
                 <h2>All Shoes</h2>
                 <div className={s.search}>
                     <Search />
-                    <input type="text" placeholder='Search...' />
+                    <Input type="text" placeholder='Search...' />
                 </div>
             </nav>
             <div className={s.cards}>

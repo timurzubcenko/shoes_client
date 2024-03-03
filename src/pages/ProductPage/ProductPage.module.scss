@@ -84,6 +84,12 @@
                 gap: 12px;
                 // align-items: center;
 
+                a {
+                    .btn {
+                        width: 100%;
+                    }
+                }
+
                 button {
                     font-size: 16px;
                     font-weight: 500;
@@ -91,6 +97,15 @@
                     border: 1px solid #111;
                     border-radius: 30px;
                     cursor: pointer;
+                }
+
+                .btn_done {
+                    background: #eaeaea;
+                    padding: 13px;
+                    font-size: 30px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
                 }
 
                 .btn {
@@ -120,6 +135,20 @@
                     line-height: 1.75;
                     color: #111;
                 }
+            }
+        }
+    }
+}
+
+@media (max-width: 900px) {
+    .shoes {
+        margin-top: calc(91.5px + 20px);
+
+        .wrapper {
+            grid-template-columns: 1fr;
+
+            .info {
+                margin: 0;
             }
         }
     }

@@ -17,25 +17,12 @@ const Footer = () => {
     gsap.registerPlugin(ScrollTrigger)
 
     const animation = () => {
-        // gsap.from([title, btn, btns, p], {
-        //     scrollTrigger: {
-        //         trigger: footer,
-        //         toggleActions: 'restart',
-        //         start: 'top bottom',
-        //         end: 'bottom bottmom',
-        //         markers: true,
-        //     },
-        //     scale: .5,
-        //     opacity: 0,
-        //     duration: 1.8,
-        //     stagger: .5
-        // })
         gsap.from([title, btn, btns, p], {
             scrollTrigger: {
                 trigger: footer,
                 // scrub: true,
                 toggleActions: 'restart',
-                start: '-400px bottom',
+                start: 'top bottom',
                 end: 'bottom bottom',
                 // markers: true,
             },

@@ -15,7 +15,7 @@ const MyRoute = ({ isLogin }) => {
                 <Header isLogin={isLogin} />
                 <Routes>
                     <Route path='/' element={<HomePage />} />
-                    <Route path='/shoes/:id' element={<ProductPage />} />
+                    <Route path='/shoes/:id' element={<ProductPage isLogin={isLogin} />} />
                     <Route path='/cart' element={<CartPage />} />
                     <Route path='*' element={<Navigate to='/' />} />
                 </Routes>
