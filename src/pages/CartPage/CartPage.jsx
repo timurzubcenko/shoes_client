@@ -14,22 +14,22 @@ const CartPage = () => {
     console.log(userId2)
 
     const [cartProducts, setCartProducts] = useState([
-        {
-            id: 1,
-            img: 'https://cdn-images.farfetch-contents.com/17/87/93/58/17879358_37823778_1000.jpg',
-            title: 'Name product',
-            price: 139,
-            count: 1,
-            priceTotal: 139
-        },
-        {
-            id: 2,
-            img: 'https://cdn-images.farfetch-contents.com/17/87/93/58/17879358_37823778_1000.jpg',
-            title: 'Name product',
-            price: 139,
-            count: 1,
-            priceTotal: 139
-        },
+        // {
+        //     id: 1,
+        //     img: 'https://cdn-images.farfetch-contents.com/17/87/93/58/17879358_37823778_1000.jpg',
+        //     title: 'Name product',
+        //     price: 139,
+        //     count: 1,
+        //     priceTotal: 139
+        // },
+        // {
+        //     id: 2,
+        //     img: 'https://cdn-images.farfetch-contents.com/17/87/93/58/17879358_37823778_1000.jpg',
+        //     title: 'Name product',
+        //     price: 139,
+        //     count: 1,
+        //     priceTotal: 139
+        // },
     ])
 
     const increase = (id) => {
