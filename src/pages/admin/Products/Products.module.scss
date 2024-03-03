@@ -1,0 +1,55 @@
+.products {
+    overflow: auto;
+
+    header {
+        display: flex;
+        align-items: center;
+        padding: 15px;
+        justify-content: space-between;
+
+        button {
+            border: none;
+            outline: none;
+            background: #c8dbf9;
+            padding: 10px 15px;
+            color: #1157c0;
+            font-weight: 500;
+            cursor: pointer;
+        }
+    }
+
+    table {
+        width: 100%;
+        margin-bottom: 20px;
+        border: 1px solid #dddddd;
+        border-collapse: collapse;
+
+        tr {
+            th {
+                font-weight: bold;
+                padding: 5px;
+                background: #efefef;
+                border: 1px solid #dddddd;
+            }
+
+            td {
+                text-align: center;
+                border: 1px solid #dddddd;
+                padding: 5px;
+
+                img {
+                    width: 60px;
+                }
+
+                button {
+                    border: none;
+                    outline: none;
+                    background: transparent;
+                    font-size: 18px;
+                    padding: 10px;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

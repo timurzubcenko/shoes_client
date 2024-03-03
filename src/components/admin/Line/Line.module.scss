@@ -1,0 +1,22 @@
+.btns {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    gap: 10px;
+
+    .btn {
+        padding: 10px 12px;
+        outline: none;
+        background: transparent;
+        border: 1px solid #7e7e7e;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .yes {
+        background: #dd4a4a;
+        border-color: #dd4a4a;
+        color: white;
+    }
+}

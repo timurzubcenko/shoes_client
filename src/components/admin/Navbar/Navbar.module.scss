@@ -1,0 +1,40 @@
+.nav {
+    background: #ffffff;
+    box-shadow: 0 0 15px rgba(0, 0, 0, .25);
+
+    header {
+        text-align: center;
+        padding: 20px;
+        font-size: 22px;
+        font-weight: 600;
+        background: #ffffff;
+    }
+
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: calc(100vh - 67px);
+
+        ul {
+            a {
+                padding: 15px;
+                font-size: 16px;
+                display: block;
+                background: #ffffff;
+            }
+
+            a.active {
+                background: #daeaff;
+            }
+        }
+
+        .btn {
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-top: 1px solid rgb(119, 119, 119);
+            cursor: pointer;
+        }
+    }
+}

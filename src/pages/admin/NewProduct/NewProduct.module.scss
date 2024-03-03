@@ -1,0 +1,48 @@
+.newproduct {
+    overflow: auto;
+
+    header {
+        display: flex;
+        align-items: center;
+        padding: 15px;
+        justify-content: space-between;
+
+        button {
+            border: none;
+            outline: none;
+            background: #c8dbf9;
+            padding: 10px 15px;
+            color: #1157c0;
+            font-weight: 500;
+            cursor: pointer;
+        }
+    }
+
+    .wrapper {
+        display: flex;
+        justify-content: center;
+
+        .form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin: 15px;
+            width: 340px;
+
+
+            input {
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            textarea {
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            select {
+                width: 100%;
+            }
+        }
+    }
+}

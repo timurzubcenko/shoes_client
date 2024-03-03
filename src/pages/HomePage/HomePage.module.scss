@@ -1,0 +1,65 @@
+.main {
+
+    .main_header {
+        background: rgb(232, 230, 239);
+        background: linear-gradient(180deg, rgba(232, 230, 239, 1) 0%, rgba(232, 230, 239, 1) 71%, rgba(255, 255, 255, 1) 100%);
+        min-height: 100vh;
+        position: relative;
+        width: 100vw;
+        top: 0;
+        z-index: -2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        .center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+
+            h1 {
+                position: absolute;
+                inset: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 15vw;
+                color: #FFF;
+                z-index: -1;
+            }
+
+            img {
+                max-width: 850px;
+                width: 100%;
+                object-fit: contain;
+            }
+        }
+
+        .arrow_scroll {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            gap: 10px;
+            margin-bottom: 30px;
+
+            p {
+                color: #323232;
+
+                text-align: center;
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: normal;
+                text-transform: uppercase;
+            }
+
+            svg {
+                font-size: 40px;
+            }
+        }
+    }
+}
