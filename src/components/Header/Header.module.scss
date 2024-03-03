@@ -62,7 +62,7 @@
                         overflow: hidden;
                         text-overflow: ellipsis;
                         white-space: nowrap;
-                        width: 8ch;
+                        max-width: 8ch;
                     }
                 }
 
@@ -217,7 +217,7 @@
                                 overflow: hidden;
                                 text-overflow: ellipsis;
                                 white-space: nowrap;
-                                width: 8ch;
+                                max-width: 8ch;
                             }
                         }
 

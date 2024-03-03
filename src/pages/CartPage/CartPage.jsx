@@ -10,7 +10,7 @@ const API_URL = import.meta.env.VITE_API_URL
 
 const CartPage = () => {
 
-    const { userId2 } = useContext(AuthContext)
+    const userId2 = useContext(AuthContext)
     console.log(userId2)
 
     const [cartProducts, setCartProducts] = useState([

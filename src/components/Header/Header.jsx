@@ -8,7 +8,7 @@ import { AuthContext } from '../../context/AuthContext';
 
 const Header = ({ isLogin }) => {
 
-    const { token2, email2, logout2 } = useContext(AuthContext)
+    const { token2, email2, logout2, name2 } = useContext(AuthContext)
     // console.log(token2, email2, isLogin)
 
     const [isActive, setIsActive] = useState(false)
@@ -41,7 +41,7 @@ const Header = ({ isLogin }) => {
                         {
                             isLogin
                                 ? <div className={s.user}>
-                                    <button onClick={clickUser} className={s.btn_user}><PersonFill /><p>{email2}</p></button>
+                                    <button onClick={clickUser} className={s.btn_user}><PersonFill /><p>{name2}</p></button>
                                     <div className={`${s.modal_logout} ${isActiveUser ? s.active : ''}`}>
                                         <h3>{email2}</h3>
                                         <button onClick={logout2}>log out</button>
@@ -57,7 +57,7 @@ const Header = ({ isLogin }) => {
                     {
                         isLogin
                             ? <div className={s.user}>
-                                <button onClick={clickUser} className={s.btn_user}><PersonFill /><p>{email2}</p></button>
+                                <button onClick={clickUser} className={s.btn_user}><PersonFill /><p>{name2}</p></button>
                                 <div className={`${s.modal_logout} ${isActiveUser ? s.active : ''}`}>
                                     <h3>{email2}</h3>
                                     <button onClick={logout2}>log out</button>

@@ -29,7 +29,7 @@ const Login = () => {
 
             axios.post(API_URL + '/api/authusers/login', form)
                 .then((response) => {
-                    console.log(response)
+                    console.log(response.data)
                     login2(response.data.token, response.data.userId, response.data.email, response.data.name)
                     navigate('/')
                 })
