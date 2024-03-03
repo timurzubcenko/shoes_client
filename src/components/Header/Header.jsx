@@ -16,10 +16,15 @@ const Header = ({ isLogin }) => {
 
     const clickMenu = () => {
         setIsActive(!isActive)
+        window.scrollTo(0, 0);
     }
 
     const clickUser = () => {
         setIsActiveUser(!isActiveUser)
+    }
+
+    const scrollUp = () => {
+        window.scrollTo(0, 0);
     }
 
     return (
@@ -53,7 +58,7 @@ const Header = ({ isLogin }) => {
                     </div>
                 </nav>
                 <div className={s.lang_btns}>
-                    <Link to="/cart"><Btn><Cart4 /></Btn></Link>
+                    <Link onClick={clickMenu} to="/cart"><Btn><Cart4 /></Btn></Link>
                     {
                         isLogin
                             ? <div className={s.user}>
