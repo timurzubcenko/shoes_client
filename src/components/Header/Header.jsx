@@ -71,7 +71,7 @@ const Header = ({ isLogin }) => {
                                         <button onClick={logout2}>log out</button>
                                     </div>
                                 </div>
-                                : <Link to="/login"><Btn><PersonFill /></Btn></Link>
+                                : <Link onClick={clickMenu} to="/login"><Btn><PersonFill /></Btn></Link>
                         }
                         {/* <LengBtns /> */}
                     </div>
@@ -87,7 +87,7 @@ const Header = ({ isLogin }) => {
                                     <button onClick={logout2}>log out</button>
                                 </div>
                             </div>
-                            : <Link to="/login"><Btn><PersonFill /></Btn></Link>
+                            : <Link onClick={clickMenu} to="/login"><Btn><PersonFill /></Btn></Link>
                     }
                     {/* <LengBtns /> */}
                 </div>
