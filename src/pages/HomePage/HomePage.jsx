@@ -52,13 +52,11 @@ const HomePage = () => {
 
         const tl2 = gsap.timeline({ repeat: -1, ease: 'none' })
             .to(jordan, {
-                scale: 1.1,
                 rotate: -10,
                 duration: 10,
                 transformOrigin: '50% 50%',
             })
             .to(jordan, {
-                scale: 1,
                 rotate: 0,
                 duration: 10,
                 transformOrigin: '50% 50%',
