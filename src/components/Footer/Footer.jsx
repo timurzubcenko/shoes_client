@@ -14,30 +14,30 @@ const Footer = () => {
     let btns = useRef(null)
     let p = useRef(null)
 
-    gsap.registerPlugin(ScrollTrigger)
+    // gsap.registerPlugin(ScrollTrigger)
 
-    const animation = () => {
-        gsap.from([title, btn, btns, p], {
-            scrollTrigger: {
-                trigger: footer,
-                // scrub: true,
-                toggleActions: 'restart',
-                start: 'top bottom',
-                end: 'bottom bottom',
-                // markers: true,
-            },
-            transformOrigin: '50% 50%',
-            scale: .5,
-            opacity: 0,
-            duration: 1.5,
-            stagger: .5
-            // duration: 2,
-        })
-    }
+    // const animation = () => {
+    //     gsap.from([title, btn, btns, p], {
+    //         scrollTrigger: {
+    //             trigger: footer,
+    //             // scrub: true,
+    //             toggleActions: 'restart',
+    //             start: 'top bottom',
+    //             end: 'bottom bottom',
+    //             // markers: true,
+    //         },
+    //         transformOrigin: '50% 50%',
+    //         scale: .5,
+    //         opacity: 0,
+    //         duration: 1.5,
+    //         stagger: .5
+    //         // duration: 2,
+    //     })
+    // }
 
-    useLayoutEffect(() => {
-        animation()
-    }, [])
+    // useLayoutEffect(() => {
+    //     animation()
+    // }, [])
 
     return (
         <footer className={s.footer} ref={el => footer = el}>
