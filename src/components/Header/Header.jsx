@@ -5,6 +5,10 @@ import { Link } from 'react-router-dom';
 import Btn from '../UI/Btn/Btn';
 import { Cart4, PersonFill } from 'react-bootstrap-icons'
 import { AuthContext } from '../../context/AuthContext';
+import axios from 'axios'
+import authHeader from '../../services/header.service'
+
+const API_URL = import.meta.env.VITE_API_URL
 
 const Header = ({ isLogin }) => {
 
@@ -13,6 +17,7 @@ const Header = ({ isLogin }) => {
 
     const [isActive, setIsActive] = useState(false)
     const [isActiveUser, setIsActiveUser] = useState(false)
+    const [cartProducts, setCartProducts] = useState([])
 
     const clickMenu = () => {
         setIsActive(!isActive)
@@ -23,9 +28,23 @@ const Header = ({ isLogin }) => {
         setIsActiveUser(!isActiveUser)
     }
 
-    const scrollUp = () => {
-        window.scrollTo(0, 0);
+    const getCart = async () => {
+        try {
+            await axios.get(API_URL + '/api/products/cart', {
+                headers: authHeader()
+            })
+                .then(res => {
+                    // console.log(res.data)
+                    setCartProducts(res.data)
+                })
+        } catch (error) {
+            console.log(error)
+        }
     }
+
+    useEffect(() => {
+        getCart()
+    }, [])
 
     return (
         <header className={s.header}>
@@ -42,7 +61,7 @@ const Header = ({ isLogin }) => {
                         <li onClick={clickMenu}>KIDS</li>
                     </ul>
                     <div className={s.lang_btns_in_menu}>
-                        <Link onClick={clickMenu} to="/cart"><Btn ><Cart4 /></Btn></Link>
+                        <Link onClick={clickMenu} to="/cart"><Btn className={s.btn_cart}><Cart4 /><h4>{cartProducts.length}</h4></Btn></Link>
                         {
                             isLogin
                                 ? <div className={s.user}>
@@ -58,7 +77,7 @@ const Header = ({ isLogin }) => {
                     </div>
                 </nav>
                 <div className={s.lang_btns}>
-                    <Link onClick={clickMenu} to="/cart"><Btn><Cart4 /></Btn></Link>
+                    <Link onClick={clickMenu} to="/cart"><Btn className={s.btn_cart}><Cart4 />{cartProducts.length !== 0 ? <h4>{cartProducts.length}</h4> : ''}</Btn></Link>
                     {
                         isLogin
                             ? <div className={s.user}>

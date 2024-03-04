@@ -32,8 +32,8 @@ const Line = ({ product, index, setProducts, products }) => {
             <tr>
                 <td>{index + 1}.</td>
                 <td>{product.title}</td>
-                <td><img src={product.img} alt="" /></td>
-                <td>{product.price}</td>
+                <td><img src={API_URL + product.img} alt="" /></td>
+                <td>{product.price} €</td>
                 <td>
                     <button><PencilFill /></button>
                     <button onClick={() => deleteProduct(product._id)}><TrashFill /></button>

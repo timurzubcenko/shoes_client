@@ -2,11 +2,13 @@ import React from 'react'
 import s from './CartProduct.module.scss'
 import { CaretUpFill, CaretDownFill, XLg } from 'react-bootstrap-icons'
 
-const CartProduct = ({ product, increase, decrease, removeItem }) => {
+const API_URL = import.meta.env.VITE_API_URL
+
+const CartProduct = ({ product, removeItem }) => {
     return (
         <div className={s.product}>
             <div className={s.img}>
-                <img src={product.img} alt="" />
+                <img src={API_URL + product.img} alt="" />
             </div>
             <h3>{product.title}</h3>
             <h3 className={s.price}>{product.price}</h3>

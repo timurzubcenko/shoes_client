@@ -10,7 +10,7 @@ const API_URL = import.meta.env.VITE_API_URL
 
 const CartPage = () => {
 
-    const userId2 = useContext(AuthContext)
+    const { userId2 } = useContext(AuthContext)
     console.log(userId2)
 
     const [cartProducts, setCartProducts] = useState([
@@ -32,31 +32,31 @@ const CartPage = () => {
         // },
     ])
 
-    const increase = (id) => {
-        setCartProducts(cartProducts.map((product) => {
-            if (product.id === id) {
-                return {
-                    ...product,
-                    count: ++product.count,
-                    priceTotal: product.price * product.count
-                }
-            }
-            return product
-        }))
-    }
+    // const increase = (id) => {
+    //     setCartProducts(cartProducts.map((product) => {
+    //         if (product.id === id) {
+    //             return {
+    //                 ...product,
+    //                 count: ++product.count,
+    //                 priceTotal: product.price * product.count
+    //             }
+    //         }
+    //         return product
+    //     }))
+    // }
 
-    const decrease = (id) => {
-        setCartProducts(cartProducts.map((product) => {
-            if (product.id === id) {
-                return {
-                    ...product,
-                    count: product.count > 1 ? --product.count : product.count,
-                    priceTotal: product.price * product.count
-                }
-            }
-            return product
-        }))
-    }
+    // const decrease = (id) => {
+    //     setCartProducts(cartProducts.map((product) => {
+    //         if (product.id === id) {
+    //             return {
+    //                 ...product,
+    //                 count: product.count > 1 ? --product.count : product.count,
+    //                 priceTotal: product.price * product.count
+    //             }
+    //         }
+    //         return product
+    //     }))
+    // }
 
     const removeItem = async (productId) => {
         // setCartProducts(cartProducts.filter((p) => p.id !== productId))
@@ -100,7 +100,7 @@ const CartPage = () => {
                     {
                         cartProducts.length !== 0
                             ? cartProducts.map((product, index) =>
-                                <CartProduct removeItem={removeItem} decrease={decrease} increase={increase} key={index} product={product} />
+                                <CartProduct removeItem={removeItem} key={index} product={product} />
                             )
                             : <h2>Shopping bag is empty</h2>
                     }

@@ -36,7 +36,7 @@ const HomePage = () => {
             },
             // opacity: .4,
             // scale: .9,
-            y: -100,
+            y: -50,
         })
 
         gsap.to(sneakers, {
@@ -47,7 +47,7 @@ const HomePage = () => {
                 scrub: true,
                 // markers: true,
             },
-            y: 200,
+            y: 100,
         })
 
         const tl2 = gsap.timeline({ repeat: -1, ease: 'none' })

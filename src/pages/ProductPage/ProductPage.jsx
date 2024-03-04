@@ -13,7 +13,7 @@ const API_URL = import.meta.env.VITE_API_URL
 const ProductPage = ({ isLogin }) => {
 
     const { userId2 } = useContext(AuthContext)
-    console.log(API_URL)
+    // console.log(API_URL)
 
     const [product, setProduct] = useState(null)
     const [images, setImages] = useState([
@@ -107,7 +107,7 @@ const ProductPage = ({ isLogin }) => {
                         <h1>{product?.title}</h1>
                         <h3>Big Kids' Shoes</h3>
                     </div>
-                    <p className={s.price}>{product?.price}</p>
+                    <p className={s.price}>{product?.price} €</p>
                     <div className={s.size}>
                         <div className={s.size_header}>
                             <p className={s.select_p}>Select Size</p>

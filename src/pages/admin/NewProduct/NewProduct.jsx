@@ -77,7 +77,7 @@ const NewProduct = () => {
 
         await axios.post(API_URL + '/upload', data)
             .then((res) => {
-                setImage(API_URL + res.data.url)
+                setImage(res.data.url)
                 console.log(res, image)
             })
 
@@ -89,7 +89,7 @@ const NewProduct = () => {
 
         await axios.post(API_URL + '/upload', data1)
             .then((res) => {
-                setImage1(API_URL + res.data.url)
+                setImage1(res.data.url)
                 console.log(res, image1)
             })
 
@@ -101,7 +101,7 @@ const NewProduct = () => {
 
         await axios.post(API_URL + '/upload', data2)
             .then((res) => {
-                setImage2(API_URL + res.data.url)
+                setImage2(res.data.url)
                 console.log(res, image2)
             })
 
@@ -113,7 +113,7 @@ const NewProduct = () => {
 
         await axios.post(API_URL + '/upload', data3)
             .then((res) => {
-                setImage3(API_URL + res.data.url)
+                setImage3(res.data.url)
                 console.log(res, image3)
             })
 
@@ -124,7 +124,7 @@ const NewProduct = () => {
 
         await axios.post(API_URL + '/upload', data4)
             .then((res) => {
-                setImage4(API_URL + res.data.url)
+                setImage4(res.data.url)
                 console.log(res, image4)
             })
     }

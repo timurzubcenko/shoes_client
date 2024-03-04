@@ -3,6 +3,7 @@ import s from './Product.module.scss'
 import { Heart, Plus, HeartFill, Check } from 'react-bootstrap-icons'
 import { Link } from 'react-router-dom';
 
+const API_URL = import.meta.env.VITE_API_URL
 
 const Product = ({ card, changeAddCard }) => {
 
@@ -25,13 +26,13 @@ const Product = ({ card, changeAddCard }) => {
         <Link onClick={scrollUp} to={"/shoes/" + card._id}>
             <div className={s.card}>
                 <div className={s.img}>
-                    <img src={card.img} alt="" />
+                    <img src={API_URL + card.img} alt="" />
                 </div>
                 <h3 className={s.title}>{card.title}</h3>
                 <div className={s.info}>
                     <div className={s.price}>
                         <h4>PRICE:</h4>
-                        <p>{card.price}</p>
+                        <p>{card.price} €</p>
                     </div>
                     <div onClick={() => changeAddCard(card.id)} className={`${s.add} ${card?.isAdd ? s.active : ''}`}>
                         {card?.isAdd ? <Check /> : <Plus />}

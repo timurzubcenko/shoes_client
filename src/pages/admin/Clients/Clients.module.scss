@@ -1,0 +1,45 @@
+.clients {
+    overflow: auto;
+
+    header {
+        display: flex;
+        align-items: center;
+        padding: 15px;
+        justify-content: space-between;
+    }
+
+    table {
+        width: 100%;
+        margin-bottom: 20px;
+        border: 1px solid #dddddd;
+        border-collapse: collapse;
+
+        tr {
+            th {
+                font-weight: bold;
+                padding: 5px;
+                background: #efefef;
+                border: 1px solid #dddddd;
+            }
+
+            td {
+                text-align: center;
+                border: 1px solid #dddddd;
+                padding: 5px;
+
+                img {
+                    width: 60px;
+                }
+
+                button {
+                    border: none;
+                    outline: none;
+                    background: transparent;
+                    font-size: 18px;
+                    padding: 10px;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
