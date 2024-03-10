@@ -16,6 +16,7 @@ const ProductPage = ({ isLogin }) => {
     // console.log(API_URL)
 
     const [product, setProduct] = useState(null)
+    // console.log(product)
     const [images, setImages] = useState([
         {
             id: 0,
@@ -76,16 +77,17 @@ const ProductPage = ({ isLogin }) => {
         getProduct()
     }, [])
 
-    const [selectedSize, setSelectedSize] = useState(-1)
+    const [selectedSize, setSelectedSize] = useState('')
 
     const selectSize = (index) => {
         setSelectedSize(index)
     }
+    // console.log(selectedSize)
 
     const addToBag = async () => {
         try {
 
-            await axios.post(API_URL + '/api/products/addtobag/', product, {
+            await axios.post(API_URL + '/api/products/addtobag/', { ...product, selectedSize: selectedSize }, {
                 headers: authHeader()
             })
                 .then((res) => {
@@ -116,7 +118,7 @@ const ProductPage = ({ isLogin }) => {
                         <ul>
                             {
                                 product?.sizes.map((size, index) =>
-                                    <li onClick={() => selectSize(index)} className={`${selectedSize === index ? s.activeSize : ''}`} key={index}>{size}</li>
+                                    <li onClick={() => selectSize(size)} className={`${selectedSize === size ? s.activeSize : ''}`} key={index}>{size}</li>
                                 )
                             }
                         </ul>

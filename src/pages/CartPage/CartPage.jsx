@@ -11,7 +11,7 @@ const API_URL = import.meta.env.VITE_API_URL
 const CartPage = () => {
 
     const { userId2 } = useContext(AuthContext)
-    console.log(userId2)
+    // console.log(userId2)
 
     const [cartProducts, setCartProducts] = useState([
         // {
@@ -22,41 +22,7 @@ const CartPage = () => {
         //     count: 1,
         //     priceTotal: 139
         // },
-        // {
-        //     id: 2,
-        //     img: 'https://cdn-images.farfetch-contents.com/17/87/93/58/17879358_37823778_1000.jpg',
-        //     title: 'Name product',
-        //     price: 139,
-        //     count: 1,
-        //     priceTotal: 139
-        // },
     ])
-
-    // const increase = (id) => {
-    //     setCartProducts(cartProducts.map((product) => {
-    //         if (product.id === id) {
-    //             return {
-    //                 ...product,
-    //                 count: ++product.count,
-    //                 priceTotal: product.price * product.count
-    //             }
-    //         }
-    //         return product
-    //     }))
-    // }
-
-    // const decrease = (id) => {
-    //     setCartProducts(cartProducts.map((product) => {
-    //         if (product.id === id) {
-    //             return {
-    //                 ...product,
-    //                 count: product.count > 1 ? --product.count : product.count,
-    //                 priceTotal: product.price * product.count
-    //             }
-    //         }
-    //         return product
-    //     }))
-    // }
 
     const removeItem = async (productId) => {
         // setCartProducts(cartProducts.filter((p) => p.id !== productId))
@@ -66,7 +32,8 @@ const CartPage = () => {
                 headers: authHeader()
             })
                 .then((res) => {
-                    console.log(res)
+                    console.log(res.data)
+                    setCartProducts(cartProducts.filter((p) => p._id !== productId))
                 })
 
         } catch (error) {
@@ -80,7 +47,7 @@ const CartPage = () => {
                 headers: authHeader()
             })
                 .then(res => {
-                    console.log(res.data)
+                    // console.log(res.data)
                     setCartProducts(res.data)
                 })
         } catch (error) {
