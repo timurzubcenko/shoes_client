@@ -47,7 +47,7 @@ const CartPage = () => {
                 headers: authHeader()
             })
                 .then(res => {
-                    // console.log(res.data)
+                    console.log(res.data)
                     setCartProducts(res.data)
                 })
         } catch (error) {

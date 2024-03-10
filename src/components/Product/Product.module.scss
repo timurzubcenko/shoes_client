@@ -1,11 +1,15 @@
 .card {
     border-radius: 40px;
-    border: 1px solid #F3F3F3;
+    border: 1px solid #e2e2e2;
     background: #FFF;
     padding: 30px;
     transition: all .3s;
     cursor: pointer;
     position: relative;
+    min-height: 290px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
     .img {
         height: 176px;

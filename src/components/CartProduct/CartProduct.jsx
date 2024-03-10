@@ -13,7 +13,7 @@ const CartProduct = ({ product, removeItem }) => {
             </div>
             <h3>{product.title}</h3>
             <h3>{product.selectedSize}</h3>
-            <h3 className={s.price}>{product.price}</h3>
+            <h3 className={s.price}>{product.price} €</h3>
             <div onClick={() => removeItem(product._id)} className={s.delete}><XLg /></div>
         </div >
     );

@@ -86,15 +86,19 @@ const ProductPage = ({ isLogin }) => {
 
     const addToBag = async () => {
         try {
-
-            await axios.post(API_URL + '/api/products/addtobag/', { ...product, selectedSize: selectedSize }, {
-                headers: authHeader()
-            })
-                .then((res) => {
-                    console.log(res.data)
-                    setIsInCart(true)
+            if (selectedSize !== '') {
+                await axios.post(API_URL + '/api/products/addtobag/', { ...product, selectedSize: selectedSize }, {
+                    headers: authHeader()
                 })
-
+                    .then((res) => {
+                        console.log(res.data)
+                        setIsInCart(!!res.data)
+                        // location.reload()
+                    })
+            }
+            else {
+                alert('Select size')
+            }
         } catch (error) {
             console.log(error)
         }
