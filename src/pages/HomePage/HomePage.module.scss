@@ -136,6 +136,8 @@
             text-align: center;
             gap: 10px;
             margin-bottom: 30px;
+            position: relative;
+            z-index: 6;
 
             p {
                 color: #323232;
