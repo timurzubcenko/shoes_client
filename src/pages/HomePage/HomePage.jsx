@@ -7,7 +7,10 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Products from '../../components/Products/Products'
 import nike from '../../assets/img/Nike.png'
 import three from '../../assets/img/03.png'
+import axios from 'axios'
+import authHeader from '../../services/header.service'
 
+const API_URL = import.meta.env.VITE_API_URL
 
 const HomePage = () => {
 
@@ -26,7 +29,24 @@ const HomePage = () => {
 
     gsap.registerPlugin(ScrollTrigger);
 
+    const getAuth = async () => {
+        try {
+
+            await axios.get(API_URL + '/api/auth/', { headers: authHeader() })
+                .then(res => {
+                    console.log(res.data)
+                })
+                .catch(err => {
+                    console.log(err)
+                })
+
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     useEffect(() => {
+        getAuth()
         const tl = gsap.timeline({ repeat: -1, ease: 'none' })
             .to(arrow, {
                 y: 10,
@@ -154,7 +174,7 @@ const HomePage = () => {
                     </div>
                 </div>
                 <div className={`${s.center} container`}>
-                    <h1 ref={el => sneakers = el}>SNEAKERS</h1>
+                    <h1 ref={el => sneakers = el}>SHOES.TZ</h1>
                     <img src={Jordan} alt="Jordan" ref={el => jordan = el} />
                 </div>
                 <div className={s.arrow_scroll}>

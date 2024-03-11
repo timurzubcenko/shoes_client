@@ -49,7 +49,7 @@ const Header = ({ isLogin }) => {
     return (
         <header className={s.header}>
             <div className={`${s.in_header} container`}>
-                <h2 className="logo"><Link to="/">SHOES</Link></h2>
+                <h2 className="logo"><Link to="/">SHOES.TZ</Link></h2>
                 <div className={`${s.header_burger} ${isActive ? s.active : ''}`} onClick={clickMenu}>
                     <span></span>
                 </div>

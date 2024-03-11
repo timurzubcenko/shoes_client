@@ -43,9 +43,7 @@ const CartPage = () => {
 
     const getShoppingBag = async () => {
         try {
-            await axios.get(API_URL + '/api/products/cart', {
-                headers: authHeader()
-            })
+            await axios.get(API_URL + '/api/products/cart', { headers: authHeader() })
                 .then(res => {
                     console.log(res.data)
                     setCartProducts(res.data)

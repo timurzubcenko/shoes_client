@@ -43,7 +43,7 @@ const Footer = () => {
         <footer className={s.footer} ref={el => footer = el}>
             <div className={`${s.in_footer} container`}>
                 <h2 ref={el => title = el}>Contacts</h2>
-                <button ref={el => btn = el} className={s.btn}>Go to Bag</button>
+                <Link to="/cart"><button ref={el => btn = el} className={s.btn}>Go to Bag</button></Link>
                 <div ref={el => btns = el} className={s.social_btns}>
                     <a href=""><Instagram /></a>
                     <a href=""><Telegram /></a>
