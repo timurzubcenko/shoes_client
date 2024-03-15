@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useContext } from 'react'
 import s from './HomePage.module.scss'
 import Jordan from '../../assets/img/Jordan.png'
 import { ArrowDownCircle } from 'react-bootstrap-icons'
@@ -9,10 +9,13 @@ import nike from '../../assets/img/Nike.png'
 import three from '../../assets/img/03.png'
 import axios from 'axios'
 import authHeader from '../../services/header.service'
+import { AuthContext } from '../../context/AuthContext'
 
 const API_URL = import.meta.env.VITE_API_URL
 
 const HomePage = () => {
+
+    const { logout } = useContext(AuthContext)
 
     let arrow = useRef(null)
     let jordan = useRef(null)
@@ -38,6 +41,7 @@ const HomePage = () => {
                 })
                 .catch(err => {
                     console.log(err)
+                    logout()
                 })
 
         } catch (error) {

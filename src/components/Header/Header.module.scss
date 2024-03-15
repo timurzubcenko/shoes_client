@@ -194,7 +194,9 @@
                 align-items: center;
                 flex-direction: column;
 
-                background: #d5d5d5;
+                background: #ffffff;
+                backdrop-filter: blur(100px);
+                -webkit-backdrop-filter: blur(100px);
 
                 .header_list {
                     flex-direction: column;

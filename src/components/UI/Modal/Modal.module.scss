@@ -1,0 +1,19 @@
+.modal {
+    display: none;
+}
+
+.modal.active {
+    position: fixed;
+    inset: 0;
+    background: #00000050;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 12;
+
+    .window {
+        background: white;
+        padding: 20px;
+        border-radius: 20px;
+    }
+}

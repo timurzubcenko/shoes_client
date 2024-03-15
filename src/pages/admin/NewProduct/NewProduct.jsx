@@ -48,6 +48,7 @@ const NewProduct = () => {
         img2: '',
         img3: '',
         img4: '',
+        gender: '',
     })
 
     const changeHandler = async (e) => {
@@ -152,6 +153,7 @@ const NewProduct = () => {
                 <div className={s.form}>
                     <Input onChange={changeHandler} type="text" name='title' placeholder='title' />
                     <Input onChange={changeHandler} type="text" name='price' placeholder='price' />
+                    <Input onChange={changeHandler} type="text" name='gender' placeholder='gender' />
                     <Input onChange={e => setImg(e.target.files[0])} type="file" name='img' placeholder='file' />
 
                     <Textarea onChange={changeHandler} name="desc" id="" cols="30" rows="10" placeholder="description" />

@@ -3,7 +3,7 @@ import s from './Input.module.scss'
 
 const Input = ({ ...props }) => {
     return (
-        <input {...props} />
+        <input {...props} className={s.input} />
     );
 };
 export default Input

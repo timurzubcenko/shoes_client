@@ -6,14 +6,16 @@ import { Link, useParams } from 'react-router-dom';
 import axios from 'axios'
 import { AuthContext } from '../../context/AuthContext';
 import authHeader from '../../services/header.service'
-import { Check2 } from 'react-bootstrap-icons'
+import { CaretUpFill, CaretDownFill, XLg, Check2 } from 'react-bootstrap-icons'
+
 
 const API_URL = import.meta.env.VITE_API_URL
 
-const ProductPage = ({ isLogin }) => {
+const ProductPage = ({ isLogin, getCart }) => {
 
     const { userId2 } = useContext(AuthContext)
     // console.log(API_URL)
+    const [amount, setAmount] = useState(1)
 
     const [product, setProduct] = useState(null)
     // console.log(product)
@@ -40,6 +42,7 @@ const ProductPage = ({ isLogin }) => {
         },
     ])
     const [isInCart, setIsInCart] = useState(false)
+    const [totalPrice, setTotalPrice] = useState(0)
 
     const { id } = useParams()
 
@@ -86,21 +89,39 @@ const ProductPage = ({ isLogin }) => {
 
     const addToBag = async () => {
         try {
-            if (selectedSize !== '') {
-                await axios.post(API_URL + '/api/products/addtobag/', { ...product, selectedSize: selectedSize }, {
+            if (selectedSize !== '' && amount > 0) {
+                await axios.post(API_URL + '/api/products/addtobag/', {
+                    ...product,
+                    selectedSize: selectedSize,
+                    amount: amount,
+                    price: amount * product.price
+                }, {
                     headers: authHeader()
                 })
                     .then((res) => {
                         console.log(res.data)
                         setIsInCart(!!res.data)
+                        getCart()
                         // location.reload()
                     })
             }
             else {
-                alert('Select size')
+                alert('Select size and select amount')
             }
         } catch (error) {
             console.log(error)
+        }
+    }
+
+    const increase = () => {
+        setAmount(amount + 1)
+        setTotalPrice((amount + 1) * product.price)
+    }
+
+    const decrease = () => {
+        if (amount > 1) {
+            setAmount(amount - 1)
+            setTotalPrice((amount - 1) * product.price)
         }
     }
 
@@ -126,6 +147,13 @@ const ProductPage = ({ isLogin }) => {
                                 )
                             }
                         </ul>
+                    </div>
+                    <div className={s.counter}>
+                        <p>{amount}</p>
+                        <div className={s.btns}>
+                            <button onClick={increase} className={s.btn}><CaretUpFill /></button>
+                            <button onClick={decrease} className={s.btn}><CaretDownFill /></button>
+                        </div>
                     </div>
                     <div className={s.message}>
                         <span>4 interest-free payments of $23.75 with <br /> <span className={s.span_name}>Klarna</span>.</span>
