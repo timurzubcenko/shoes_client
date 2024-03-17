@@ -8,8 +8,10 @@ import authHeader from '../../services/header.service'
 import Modal from '../../components/UI/Modal/Modal'
 import AnimInput from '../../components/UI/AnimInput/AnimInput'
 import BlackBtn from '../../components/UI/BlackBtn/BlackBtn'
+import { getMessageTelegram } from '../../services/telegram.service'
 
 const API_URL = import.meta.env.VITE_API_URL
+const API_BOT_TOKEN = import.meta.env.VITE_API_BOT_TOKEN
 
 const CartPage = ({ getCart }) => {
 
@@ -21,6 +23,7 @@ const CartPage = ({ getCart }) => {
     const [info, setInfo] = useState({
         name: "",
         surname: "",
+        number: "",
         address: "",
         index: ""
     })
@@ -75,15 +78,28 @@ const CartPage = ({ getCart }) => {
             await axios.post(API_URL + '/api/order/create', { ...info, totalPrice: totalPrice },
                 { headers: authHeader() })
                 .then(res => {
-                    console.log(res)
+                    console.log()
+                    setStateOrder('Order placed')
+                    addOrderTelegram(res.data, info)
                     setInfo({
                         name: '',
                         surname: '',
+                        number: "",
                         address: '',
                         index: ''
                     })
-                    setStateOrder('Order placed')
                 })
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    const addOrderTelegram = async (dataProducts, dataUser) => {
+        try {
+            await axios.post(`https://api.telegram.org/bot${API_BOT_TOKEN}/sendMessage`, {
+                chat_id: '593997755',
+                text: getMessageTelegram(dataProducts, dataUser)
+            })
         } catch (error) {
             console.log(error)
         }
@@ -119,12 +135,13 @@ const CartPage = ({ getCart }) => {
                 <div className={s.inputs}>
                     <AnimInput value={info.name} onChange={onChange} name="name" title={'Name'} type="text" />
                     <AnimInput value={info.surname} onChange={onChange} name="surname" title={'Surname'} type="text" />
+                    <AnimInput value={info.number} onChange={onChange} name="number" title={'Telephon Number'} type="text" />
                     <AnimInput value={info.address} onChange={onChange} name="address" title={'Address'} type="text" />
                     <AnimInput value={info.index} onChange={onChange} name="index" title={'Index'} type="text" />
                 </div>
                 <h4 className={s.state_order}>{stateOrder}</h4>
                 <div className={s.btns}>
-                    <BlackBtn onClick={addOrder}>Send</BlackBtn>
+                    <BlackBtn onClick={addOrder}>Buy</BlackBtn>
                 </div>
             </Modal>
         </div>

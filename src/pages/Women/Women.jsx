@@ -11,6 +11,7 @@ const API_URL = import.meta.env.VITE_API_URL
 const Women = () => {
 
     const [products, setProducts] = useState(productsData)
+    const [search, setSearch] = useState('')
 
     const getAllShoes = async () => {
         try {
@@ -25,6 +26,17 @@ const Women = () => {
         }
     }
 
+    const onChangeSearch = (e) => {
+        setSearch(e.target.value)
+        console.log(search)
+    }
+
+    const productFilter = () => {
+        return products.filter((product) => {
+            return product.title.toLowerCase().includes(search.toLowerCase())
+        })
+    }
+
     useEffect(() => {
         getAllShoes()
     }, [])
@@ -36,12 +48,12 @@ const Women = () => {
                     <h2>Women shoes</h2>
                     <div className={s.search}>
                         <Search />
-                        <Input type="text" placeholder='Search...' />
+                        <Input value={search} onChange={onChangeSearch} type="text" placeholder='Search...' />
                     </div>
                 </nav>
                 <div className={s.cards}>
                     {
-                        products.map((card, index) =>
+                        productFilter().map((card, index) =>
                             <Product key={index} card={card} />
                         )
                     }
