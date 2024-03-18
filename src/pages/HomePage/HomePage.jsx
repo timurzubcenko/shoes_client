@@ -15,7 +15,7 @@ const API_URL = import.meta.env.VITE_API_URL
 
 const HomePage = () => {
 
-    const { logout } = useContext(AuthContext)
+    const { logout, logout2 } = useContext(AuthContext)
 
     let arrow = useRef(null)
     let jordan = useRef(null)
@@ -40,11 +40,15 @@ const HomePage = () => {
                     console.log(res.data)
                 })
                 .catch(err => {
-                    console.log(err)
                     logout()
+                    logout2()
+                    console.log(err)
+
                 })
 
         } catch (error) {
+            logout()
+            logout2()
             console.log(error)
         }
     }

@@ -10,6 +10,7 @@ const API_URL = import.meta.env.VITE_API_URL
 const Login = () => {
 
     const { logIn } = useContext(AuthContext)
+    const [stateError, setStateError] = useState('')
 
     const [form, setForm] = useState({
         login: '',
@@ -30,6 +31,7 @@ const Login = () => {
                 })
                 .catch((error) => {
                     console.log(error)
+                    setStateError('Неверный логин или пароль')
                 })
         } catch (error) {
             console.log(error)
@@ -43,6 +45,9 @@ const Login = () => {
                 <div className={s.inputs}>
                     <Input name='login' onChange={changeHandler} type='text' placeholder="Login...*" />
                     <Input name='password' onChange={changeHandler} type='password' placeholder="Password...*" />
+                </div>
+                <div className={s.error}>
+                    <h3>{stateError}</h3>
                 </div>
                 <div className={s.btns}>
                     <Link to="/register">I don't have an account</Link>

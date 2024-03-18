@@ -28,12 +28,15 @@
 
     .counter {
         display: flex;
-        align-items: center;
+        // align-items: center;
         gap: 5px;
 
         p {
             padding: 10px;
             background: #e9e9e9;
+            display: flex;
+            align-items: center;
+            border-radius: 5px;
         }
 
         .btns {
@@ -43,6 +46,14 @@
 
             .btn {
                 cursor: pointer;
+                outline: none;
+                border: none;
+                padding: 5px;
+                border-radius: 5px;
+            }
+
+            .btn:hover {
+                background: #d0d0d0;
             }
         }
     }
@@ -54,7 +65,7 @@
 
 @media (max-width: 800px) {
     .product {
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 10px;
 
         h3 {
             font-size: 14px;

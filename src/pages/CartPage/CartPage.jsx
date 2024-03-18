@@ -105,6 +105,34 @@ const CartPage = ({ getCart }) => {
         }
     }
 
+    const increase = async (productId) => {
+        try {
+
+            await axios.patch(API_URL + '/api/products/cart/change/increase/' + productId,
+                { newAmount: 2 }, { headers: authHeader() })
+                .then(res => {
+                    getShoppingBag()
+                })
+
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    const decrease = async (productId) => {
+        try {
+
+            await axios.patch(API_URL + '/api/products/cart/change/decrease/' + productId,
+                { newAmount: 2 }, { headers: authHeader() })
+                .then(res => {
+                    getShoppingBag()
+                })
+
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     return (
         <div className={s.section_cart}>
             <div className={`${s.in_section_cart} container`}>
@@ -113,7 +141,7 @@ const CartPage = ({ getCart }) => {
                     {
                         cartProducts.length !== 0
                             ? cartProducts.map((product, index) =>
-                                <CartProduct removeItem={removeItem} key={index} product={product} />
+                                <CartProduct decrease={decrease} increase={increase} removeItem={removeItem} key={index} product={product} />
                             )
                             : <h2>Shopping bag is empty</h2>
                     }
