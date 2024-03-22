@@ -6,8 +6,8 @@
         background: linear-gradient(180deg, rgba(232, 230, 239, 1) 0%, rgba(232, 230, 239, 1) 71%, rgba(255, 255, 255, 1) 100%);
         min-height: 100vh;
         position: relative;
-        width: 100vw;
-        top: 0;
+        // width: 100vw;
+        // top: 0;
         z-index: -2;
         display: flex;
         align-items: center;
@@ -153,6 +153,18 @@
 
             svg {
                 font-size: 40px;
+            }
+        }
+    }
+}
+
+@media (max-width: 1030px) {
+    .main {
+        .main_header {
+            .center {
+                img {
+                    width: 90%;
+                }
             }
         }
     }
