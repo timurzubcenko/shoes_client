@@ -17,6 +17,7 @@ const API_URL = import.meta.env.VITE_API_URL
 
 const MyRoute = ({ isLogin }) => {
 
+    const [stateMenu, setStateMenu] = useState(1)
     const [cartProducts, setCartProducts] = useState([])
 
     const getCart = async () => {
@@ -39,7 +40,7 @@ const MyRoute = ({ isLogin }) => {
     if (isLogin) {
         return (
             <div>
-                <Header isLogin={isLogin} cartProducts={cartProducts} />
+                <Header isLogin={isLogin} cartProducts={cartProducts} stateMenu={stateMenu} setStateMenu={setStateMenu} />
                 <Routes>
                     <Route path='/' element={<HomePage />} />
                     <Route path='/shoes/:id' element={<ProductPage getCart={getCart} isLogin={isLogin} />} />
@@ -55,7 +56,7 @@ const MyRoute = ({ isLogin }) => {
     }
     return (
         <div>
-            <Header isLogin={isLogin} cartProducts={cartProducts} />
+            <Header isLogin={isLogin} cartProducts={cartProducts} stateMenu={stateMenu} setStateMenu={setStateMenu} />
             <Routes>
                 <Route path='/' element={<HomePage />} />
                 <Route path='/shoes/:id' element={<ProductPage getCart={getCart} />} />

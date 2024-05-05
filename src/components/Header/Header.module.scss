@@ -25,6 +25,10 @@
                 display: flex;
                 gap: 60px;
                 align-items: center;
+
+                li.active a {
+                    color: rgb(97, 97, 214);
+                }
             }
 
             .lang_btns_in_menu {

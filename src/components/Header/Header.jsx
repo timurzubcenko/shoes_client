@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react'
 import s from './Header.module.scss'
 import LengBtns from '../LengBtns/LengBtns';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import Btn from '../UI/Btn/Btn';
 import { Cart4, PersonFill } from 'react-bootstrap-icons'
 import { AuthContext } from '../../context/AuthContext';
@@ -10,7 +10,7 @@ import authHeader from '../../services/header.service'
 
 const API_URL = import.meta.env.VITE_API_URL
 
-const Header = ({ isLogin, cartProducts }) => {
+const Header = ({ isLogin, cartProducts, stateMenu, setStateMenu }) => {
 
     const { token2, email2, logout2, name2 } = useContext(AuthContext)
 
@@ -18,7 +18,8 @@ const Header = ({ isLogin, cartProducts }) => {
     const [isActiveUser, setIsActiveUser] = useState(false)
 
 
-    const clickMenu = () => {
+    const clickMenu = (e) => {
+        setStateMenu(e)
         setIsActive(!isActive)
         window.scrollTo(0, 0);
     }
@@ -36,9 +37,9 @@ const Header = ({ isLogin, cartProducts }) => {
                 </div>
                 <nav className={`${s.header_menu} ${isActive ? s.active : ''}`}>
                     <ul className={s.header_list}>
-                        <li onClick={clickMenu}><Link to="/">HOME</Link></li>
-                        <li onClick={clickMenu}><Link to="/men">MEN</Link></li>
-                        <li onClick={clickMenu}><Link to="/women">WOMEN</Link></li>
+                        <li onClick={() => clickMenu(1)} className={`${stateMenu === 1 ? s.active : ''}`}><NavLink to="/">HOME</NavLink></li>
+                        <li onClick={() => clickMenu(2)} className={`${stateMenu === 2 ? s.active : ''}`}><NavLink to="/men">MEN</NavLink></li>
+                        <li onClick={() => clickMenu(3)} className={`${stateMenu === 3 ? s.active : ''}`}><NavLink to="/women">WOMEN</NavLink></li>
                         {/* <li onClick={clickMenu}><Link to="/kids">KIDS</Link></li> */}
                     </ul>
                     <div className={s.lang_btns_in_menu}>

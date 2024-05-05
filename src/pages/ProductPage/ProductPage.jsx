@@ -134,7 +134,7 @@ const ProductPage = ({ isLogin, getCart }) => {
                         <h1>{product?.title}</h1>
                         <h3>Big Kids' Shoes</h3>
                     </div>
-                    <p className={s.price}>{product?.price} €</p>
+                    <p className={s.price}>{product?.price * amount} €</p>
                     <div className={s.size}>
                         <div className={s.size_header}>
                             <p className={s.select_p}>Select Size</p>
